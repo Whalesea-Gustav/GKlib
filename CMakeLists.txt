@@ -17,7 +17,9 @@ else(MSVC)
 endif(MSVC)
 
 add_library(GKlib ${GKlib_sources} ${win32_sources})
-
+target_include_directories(mylib PUBLIC
+        $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/>
+)
 if(UNIX)
   target_link_libraries(GKlib m)
 endif(UNIX)
